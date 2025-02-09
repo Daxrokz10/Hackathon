@@ -5,28 +5,47 @@
 }
 body{
     background-color: black;
+    overflow-x: hidden; 
+    font-family: "Montserrat", serif;
 }
 
 /* NAVBAR */
-nav{
-    background-image: linear-gradient(to right, #00c6ff, #0072ff); /* Change gradient colors */
-    opacity: 0.7;
+
+.navbar {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    /* margin-top: 40px; */
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar is above other elements */
+    height: 130px;
 }
+nav{
+    color: white!important;
+
+}
+.navbar.scrolled {
+    background-color: rgba(68, 68, 68, 0.2); /* Background color when scrolled */
+}
+.navbar img{
+    height: 150px; /* Adjust height as needed */
+}
+
 
 /* COUNTDOWN TIMER */
 
 .flipdown__rotor-leaf-front,
 .flipdown__rotor-leaf-rear {
-    font-size: 0.5rem; /* Smaller font size */
+    font-size: 0.25rem; /* Smaller font size */
 }
 
 .flipdown__rotor {
-    width: 10px; /* Smaller width */
-    height: 15px; /* Smaller height */
+    width: 5px; /* Smaller width */
+    height: 10px; /* Smaller height */
 }
 
 .flipdown__rotor-group {
-    margin: 0 1px; /* Adjust spacing between rotors */
+    margin: 0 0.5px; /* Adjust spacing between rotors */
 }
 
 .flipdown__rotor-group-heading {
@@ -38,6 +57,7 @@ nav{
     justify-content: center;
     align-items: center;
     margin-bottom: 10px; /* Adjust margin as needed */
+    transform: scale(0.5); /* Forcefully reduce the size */
 }
 
 #header-content {
@@ -51,64 +71,213 @@ nav{
     gap: 10px;
 }
 
-#social-icons a {
-    background-image: linear-gradient(blue, purple); 
-    color: transparent;
-    background-clip: text;
-    font-size: 3rem; /* Adjust size as needed */
-    text-decoration: none;
-    margin-right: 40px;
-}
 
 /* HERO SECTION */
 
 .hero {
-    background-image: url('./assets/hero-image.jpg'); /* Replace with actual image */
+    background-image: url('https://i.gifer.com/5zWt.gif');
     background-size: cover;
     background-position: center;
     height: 90vh;
 }
-
-
+    
 /* BANNER SECTION */
+/* Assuming there's a parent class for the banner to make it more specific */
+#banner-container {
+  margin: 0;
+  padding: 0;
+}
 
-/* Banner Container */
-.banner-container {
-    position: relative;
-    height: 200px; /* Adjust based on design */
-    overflow: hidden;
-  }
-  
-  /* Diagonal Banner */
-  .banner {
-    position: absolute;
-    top: 50%;
-    left: -50%;
-    width: 200%; /* Stretch to ensure full coverage */
-    transform: rotate(-15deg);
-    background-color: #9c88ff; /* Light purple color */
-    color: #000;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 20px 0;
-    white-space: nowrap; /* Prevent text wrapping */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    border: 2px solid #fff;
-  }
-  
-  .banner span {
-    display: inline-block;
-    animation: marquee 10s linear infinite;
-  }
-  
-  /* Marquee Effect for Moving Text */
-  @keyframes marquee {
+#banner-container .banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Space between text and icons */
+  position: absolute;
+  width: 150%; /* Full width plus extra to cover screen at an angle */
+  height: 80px; /* Adjust height to make the banners thinner */
+  color: white;
+  font-size: 24px;
+  text-transform: uppercase;
+  left: -25%; /* Make sure banner starts outside the left side of the screen */
+}
+
+#banner-container .banner1 {
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%) rotate(5deg); /* Slight left tilt */
+  background-color: rgba(0, 123, 255, 1.0); /* Blue banner */
+}
+
+#banner-container .banner2 {
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%) rotate(-5deg); /* Slight right tilt */
+  background-color: rgba(0, 255, 123, 1.0); /* Green banner */
+}
+
+#banner-container .banner-text,
+#banner-container .fas {
+  margin: 0 10px;
+}
+
+/* DESCRIPTION SECTION */
+.description{
+    padding-top: 100px;
+    color: rgb(187, 180, 180);
+}
+.description img {
+    height: 300px; /* Adjust height as needed */
+}
+.description button{
+    background-color: rgba(0, 255, 123, 1.0); 
+    font-family: "Montserrat", serif;
+    font-weight: 900;
+    border: 0;
+    padding: 10px;
+}
+.description button:hover{
+    background-color: rgba(0, 123, 255, 1.0); 
+    color: white;
+    cursor: pointer;
+}
+
+/* INFINITE ROTATION ANIMATION */
+@keyframes infinite-rotation {
     from {
-      transform: translateX(100%);
+        transform: rotate(0deg);
     }
     to {
-      transform: translateX(-100%);
+        transform: rotate(360deg);
     }
-  }
+}
+
+.rotating-image {
+    animation: infinite-rotation 10s linear infinite; /* Adjust duration as needed */
+}
+
+.description h2{
+    font-weight: 600;
+    text-transform:capitalize;
+}
+
+
+/* FOOTER SECTION */
+
+footer{
+    background-color: rgb(41, 40, 40);
+    color: white;
+    margin-top: 100px;
+    padding-top: 50px;
+    margin-bottom: -20px;
+}
+footer img{
+    height: 60px; /* Adjust height as needed */
+}
+footer .partners img{
+    margin: 40px;
+}
+footer a{
+     background-image: linear-gradient(blue, purple); 
+    color: transparent;
+    background-clip: text;
+    font-size: 2rem; /* Adjust size as needed */
+    text-decoration: none;
+    margin-right: 40px;
+}
+
+
+/* tour-details */
+
+.tour-details{
+    margin-top: 40px;
+    padding-top: 40px;
+}
+.tour-details img{
+    height: 300px; /* Adjust height as needed */
+    margin: 20px;
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+    width: 100%; /* Ensure the image takes the full width of its container */
+}
+
+.tour-details-box {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    pointer-events: none;
+}
+
+.tour-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+}
+
+/* TICKET */
+
+.ticket {
+    margin-top: 40px;
+    padding: 40px 0;
+}
+
+.ticket-tier {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.ticket-tier-box {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    height: 300px;
+    margin: 10px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: transparent; /* Remove background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ticket-tier-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ticket-tier-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+.ticket-tier-box p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #f3f3f3;
+}
+
+.ticket-tier-box .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    align-self: center;
+}
+
+.ticket-tier-box .btn:hover {
+    background-color: #0056b3;
+}
+
+.ticket-tier{
+    margin-left: 60px;
+}
