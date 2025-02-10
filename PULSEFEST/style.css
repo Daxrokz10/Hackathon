@@ -7,6 +7,7 @@ body{
     background-color: black;
     overflow-x: hidden; 
     font-family: "Montserrat", serif;
+    cursor: none;
 }
 
 /* NAVBAR */
@@ -15,9 +16,8 @@ body{
     padding: 0;
     position: fixed;
     top: 0;
-    /* margin-top: 40px; */
     width: 100%;
-    z-index: 1000; /* Ensure the navbar is above other elements */
+    z-index: 1000; 
     height: 130px;
 }
 nav{
@@ -34,41 +34,12 @@ nav{
 
 /* COUNTDOWN TIMER */
 
-.flipdown__rotor-leaf-front,
-.flipdown__rotor-leaf-rear {
-    font-size: 0.25rem; /* Smaller font size */
-}
-
-.flipdown__rotor {
-    width: 5px; /* Smaller width */
-    height: 10px; /* Smaller height */
-}
-
-.flipdown__rotor-group {
-    margin: 0 0.5px; /* Adjust spacing between rotors */
-}
-
-.flipdown__rotor-group-heading {
-    display: none;
-}
-
 #flipdown {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px; /* Adjust margin as needed */
-    transform: scale(0.5); /* Forcefully reduce the size */
-}
-
-#header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#social-icons {
-    display: flex;
-    gap: 10px;
+    margin-bottom: 10px; 
+    transform: scale(0.5); 
 }
 
 
@@ -281,3 +252,30 @@ footer a{
 .ticket-tier{
     margin-left: 60px;
 }
+
+/* POINTER JS */
+
+
+#cursor {
+    position: fixed;
+    top: calc(2rem * -0.5);
+    left: calc(2rem * -0.5);
+    pointer-events: none;
+    mix-blend-mode: difference;
+    filter: url(#goo);
+  }
+  
+  .cursor-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    transform-origin: center center;
+    border-radius: 2rem;
+    background: #fff;
+  }
+  
+  .goo {
+    display: none;
+  }
